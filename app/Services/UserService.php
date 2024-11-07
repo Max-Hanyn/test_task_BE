@@ -28,6 +28,8 @@ class UserService
     {
         if (isset($data['password'])) {
             $data['password'] = Hash::make($data['password']);
+        } else {
+            $data['password'] = $user->password;
         }
         $user->update($data);
         return $user;
